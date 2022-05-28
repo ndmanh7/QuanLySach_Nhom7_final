@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -93,6 +94,8 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Quản lý người mua");
@@ -113,6 +116,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
             }
         });
 
+        btnTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/timkiem.png"))); // NOI18N
         btnTimKiem.setText("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,8 +136,8 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(btnTimKiem)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,6 +204,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
         jLabel6.setText("Email");
 
+        btnCapNhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/update.png"))); // NOI18N
         btnCapNhat.setText("Cập nhật");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +212,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
             }
         });
 
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/delete.png"))); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +220,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
             }
         });
 
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/add.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,7 +315,18 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDiaChiActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        NguoiMua nguoiMua = new NguoiMua();
+        
+        int check = 0;
+        for (NguoiMua nguoiMua : DataIO.dsNguoiMua) {
+            if(txtMaNguoiMua.getText().equals(nguoiMua.getMaNguoiMua())){
+                check++;
+            }
+        }
+        
+        if(check != 0){
+            JOptionPane.showMessageDialog(rootPane, "Đã tồn tại khách hàng này");
+        }else{
+            NguoiMua nguoiMua = new NguoiMua();
         nguoiMua.setMaNguoiMua(txtMaNguoiMua.getText());
         nguoiMua.setTenNguoiMua(txtTenNguoiMua.getText());
         nguoiMua.setSoDienThoai(txtSoDienThoai.getText());
@@ -325,6 +343,9 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
         });
         
         DataIO.writeNguoiMua();
+        }
+        
+        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void tableNguoiMuaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableNguoiMuaKeyReleased

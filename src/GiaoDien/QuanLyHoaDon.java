@@ -9,6 +9,7 @@ import static CSDL.DataIO.dsHoaDon;
 import static CSDL.DataIO.dsSach;
 
 import CSDL.HoaDon;
+import CSDL.NguoiMua;
 import CSDL.Sach;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,7 +38,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         model = (DefaultTableModel) tableHoaDon.getModel();
         
         loadTable();
-        
+        loadCombo();
         
     }
     private void loadTable(){
@@ -64,6 +65,17 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             model.addRow(vecto);
         }
     }
+    
+    private void loadCombo(){
+        DataIO.loadNguoiMua();
+        for (NguoiMua nguoiMua : DataIO.dsNguoiMua) {
+            comboMaNguoiMua.addItem(nguoiMua.getMaNguoiMua());
+        }
+        DataIO.loadSach();
+        for (Sach sach : dsSach) {
+            comboMaSach.addItem(sach.getMaSach());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,9 +95,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtMaHoaDon = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtMaNguoiMua = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtMaSach = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtNgayMua = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -94,8 +104,12 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         btnCapNhat = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
+        comboMaNguoiMua = new javax.swing.JComboBox<>();
+        comboMaSach = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -117,6 +131,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             }
         });
 
+        btnTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/timkiem.png"))); // NOI18N
         btnTimKiem.setText("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,8 +151,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(btnTimKiem)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,6 +213,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
 
         jLabel6.setText("Số lượng mua");
 
+        btnCapNhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/update.png"))); // NOI18N
         btnCapNhat.setText("Cập nhật");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +221,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             }
         });
 
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/delete.png"))); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +229,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             }
         });
 
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/add.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,10 +277,10 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtMaHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(txtMaNguoiMua)
-                    .addComponent(txtMaSach)
                     .addComponent(txtNgayMua)
-                    .addComponent(txtSoLuongMua))
+                    .addComponent(txtSoLuongMua)
+                    .addComponent(comboMaNguoiMua, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboMaSach, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -281,11 +299,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtMaNguoiMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboMaNguoiMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -306,10 +324,21 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNgayMuaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        HoaDon hoaDon = new HoaDon();
+        
+        int check1 = 0;
+        for (HoaDon hoaDon : DataIO.dsHoaDon) {
+            if(txtMaHoaDon.getText().equals(hoaDon.getMaHoaDon())){
+                check1++;
+            }
+        }
+        
+        if(check1 != 0 ){
+            JOptionPane.showMessageDialog(rootPane, "Đã tồn tại hóa đơn này!");
+        }else{
+            HoaDon hoaDon = new HoaDon();
         hoaDon.setMaHoaDon(txtMaHoaDon.getText()); 
-        hoaDon.setMaNguoiMua(txtMaNguoiMua.getText());
-        hoaDon.setMaSach(txtMaSach.getText());
+        hoaDon.setMaNguoiMua(comboMaNguoiMua.getSelectedItem().toString());
+        hoaDon.setMaSach(comboMaSach.getSelectedItem().toString());
         hoaDon.setNgayMua(txtNgayMua.getText());
         hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
         
@@ -320,7 +349,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         DataIO.loadSach();
         int check = 0, i = 0;
         for (Sach sach : dsSach) {
-            if(sach.getMaSach().equals(txtMaSach.getText())){
+            if(sach.getMaSach().equals(comboMaSach.getSelectedItem())){
                 i = dsSach.indexOf(sach);
                 check++;
             }
@@ -343,6 +372,9 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "Khong ton tai sach nay!");
         }
+        }
+        
+        
         
         
         
@@ -355,8 +387,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         
         
         txtMaHoaDon.setText(model.getValueAt(i, 0).toString());
-        txtMaNguoiMua.setText(model.getValueAt(i, 1).toString());
-        txtMaSach.setText(model.getValueAt(i, 2).toString());
+        comboMaNguoiMua.setSelectedItem(model.getValueAt(i, 1).toString());
+        comboMaSach.setSelectedItem(model.getValueAt(i, 2).toString());
         txtNgayMua.setText(model.getValueAt(i, 3).toString());
         txtSoLuongMua.setText(model.getValueAt(i, 4).toString());
         
@@ -367,8 +399,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         
         
         txtMaHoaDon.setText(model.getValueAt(i, 0).toString());
-        txtMaNguoiMua.setText(model.getValueAt(i, 1).toString());
-        txtMaSach.setText(model.getValueAt(i, 2).toString());
+        comboMaNguoiMua.setSelectedItem(model.getValueAt(i, 1).toString());
+        comboMaSach.setSelectedItem(model.getValueAt(i, 2).toString());
         txtNgayMua.setText(model.getValueAt(i, 3).toString());
         txtSoLuongMua.setText(model.getValueAt(i, 4).toString());
         
@@ -380,14 +412,14 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         
         HoaDon hoaDon = new HoaDon();
         hoaDon.setMaHoaDon(txtMaHoaDon.getText());
-        hoaDon.setMaNguoiMua(txtMaNguoiMua.getText());
-        hoaDon.setMaSach(txtMaSach.getText());
+        hoaDon.setMaNguoiMua(comboMaNguoiMua.getSelectedItem().toString());
+        hoaDon.setMaSach(comboMaSach.getSelectedItem().toString());
         hoaDon.setNgayMua(txtNgayMua.getText());
         hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
         DataIO.loadSach();
         int check1 = 0, i1 = 0;
         for (Sach sach : dsSach) {
-            if(sach.getMaSach().equals(txtMaSach.getText())){
+            if(sach.getMaSach().equals(comboMaSach.getSelectedItem().toString())){
                 i1 = dsSach.indexOf(sach);
                 check1++;
             }
@@ -499,6 +531,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> comboMaNguoiMua;
+    private javax.swing.JComboBox<String> comboMaSach;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -510,8 +544,6 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableHoaDon;
     private javax.swing.JTextField txtMaHoaDon;
-    private javax.swing.JTextField txtMaNguoiMua;
-    private javax.swing.JTextField txtMaSach;
     private javax.swing.JTextField txtNgayMua;
     private javax.swing.JTextField txtSoLuongMua;
     private javax.swing.JTextField txtTimKiem;

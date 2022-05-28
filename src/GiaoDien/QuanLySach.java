@@ -95,6 +95,8 @@ public class QuanLySach extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Quản lý sách");
@@ -109,6 +111,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
+        btnTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/timkiem.png"))); // NOI18N
         btnTimKiem.setText("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,8 +131,8 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(btnTimKiem)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,6 +192,7 @@ public class QuanLySach extends javax.swing.JFrame {
 
         jLabel7.setText("Đơn giá");
 
+        btnCapNhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/update.png"))); // NOI18N
         btnCapNhat.setText("Cập nhật");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,13 +200,15 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnXoa.setText("Xoa");
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/delete.png"))); // NOI18N
+        btnXoa.setText("Xoá");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaActionPerformed(evt);
             }
         });
 
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/add.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,12 +221,12 @@ public class QuanLySach extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(183, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(158, 158, 158))
+                .addGap(176, 176, 176))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,6 +309,18 @@ public class QuanLySach extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTacGiaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        
+        int check = 0;
+        for (Sach sach : dsSach) {
+            if(txtMaSach.getText().equals(sach.getMaSach())){
+                check++;
+            }
+        }
+        
+        if(check !=0){
+            JOptionPane.showMessageDialog(rootPane, "Đã tồn tại sách này");
+        }else{
+             
         Sach sach = new Sach();
         sach.setMaSach(txtMaSach.getText());
         sach.setTenSach(txtTenSach.getText());
@@ -320,6 +338,8 @@ public class QuanLySach extends javax.swing.JFrame {
         });
         
         DataIO.writeSach();
+        }
+       
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void tableSachKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableSachKeyReleased

@@ -41,15 +41,17 @@ public class DangNhap extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dang nhap");
+        setBackground(new java.awt.Color(102, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Dang nhap");
+        jLabel1.setText("Đăng nhập");
 
-        jLabel2.setText("Tai khoan");
+        jLabel2.setText("Tài khoản");
 
-        jLabel3.setText("Mat khau");
+        jLabel3.setText("Mật khẩu");
 
-        btnDangNhap.setText("Dang Nhap");
+        btnDangNhap.setText("Đăng nhập");
         btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDangNhapActionPerformed(evt);
