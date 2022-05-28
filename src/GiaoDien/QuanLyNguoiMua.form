@@ -129,7 +129,7 @@
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Quan Ly Nguoi Mua"/>
+            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; ng&#x1b0;&#x1edd;i mua"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
@@ -139,7 +139,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/GiaoDien/back.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Quay Lai"/>
+            <Property name="text" type="java.lang.String" value="Quay l&#x1ea1;i"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuayLaiActionPerformed"/>
@@ -152,7 +152,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnTimKiem">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tim kiem"/>
+            <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemActionPerformed"/>
@@ -171,10 +171,10 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="0">
-                <Column editable="false" title="Ma nguoi mua" type="java.lang.Object"/>
-                <Column editable="false" title="Ten nguoi mua" type="java.lang.Object"/>
-                <Column editable="false" title="So dien thoai" type="java.lang.Object"/>
-                <Column editable="false" title="Dia chi" type="java.lang.Object"/>
+                <Column editable="false" title="M&#xe3; ng&#x1b0;&#x1edd;i mua" type="java.lang.Object"/>
+                <Column editable="false" title="T&#xea;n ng&#x1b0;&#x1edd;i mua" type="java.lang.Object"/>
+                <Column editable="false" title="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i" type="java.lang.Object"/>
+                <Column editable="false" title="&#x110;&#x1ecb;a ch&#x1ec9;" type="java.lang.Object"/>
                 <Column editable="false" title="Email" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -221,7 +221,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ma nguoi mua"/>
+        <Property name="text" type="java.lang.String" value="M&#xe3; ng&#x1b0;&#x1edd;i mua"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMaNguoiMua">
@@ -231,21 +231,21 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ten nguoi mua"/>
+        <Property name="text" type="java.lang.String" value="T&#xea;n ng&#x1b0;&#x1edd;i mua"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTenNguoiMua">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="So dien thoai"/>
+        <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSoDienThoai">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Dia chi"/>
+        <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDiaChi">
@@ -292,7 +292,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnCapNhat">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cap nhat"/>
+            <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCapNhatActionPerformed"/>
@@ -300,7 +300,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnXoa">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Xoa"/>
+            <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
@@ -308,7 +308,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnThem">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Them"/>
+            <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>

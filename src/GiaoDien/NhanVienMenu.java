@@ -39,7 +39,7 @@ public class NhanVienMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         btnDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/logout.png"))); // NOI18N
-        btnDangXuat.setText("Dang xuat");
+        btnDangXuat.setText("Đăng xuất");
         btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDangXuatActionPerformed(evt);
@@ -65,28 +65,28 @@ public class NhanVienMenu extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
-        jButton1.setText("Thong ke");
+        jButton1.setText("Thống kê");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        btnQuanLySach.setText("Quan ly sach");
+        btnQuanLySach.setText("Quản lý sách");
         btnQuanLySach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuanLySachActionPerformed(evt);
             }
         });
 
-        btnQuanLyNguoiMua.setText("Quan ly nguoi mua");
+        btnQuanLyNguoiMua.setText("Quản lý người mua");
         btnQuanLyNguoiMua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuanLyNguoiMuaActionPerformed(evt);
             }
         });
 
-        btnHoaDon.setText("Quan ly hoa don");
+        btnHoaDon.setText("Quản lý hóa đơn");
         btnHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHoaDonActionPerformed(evt);
@@ -101,7 +101,7 @@ public class NhanVienMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnQuanLyNguoiMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

@@ -97,7 +97,7 @@ public class QuanLySach extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Quan ly sach");
+        jLabel1.setText("Quản lý sách");
         jLabel1.setToolTipText("");
         jLabel1.setRequestFocusEnabled(false);
 
@@ -109,7 +109,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnTimKiem.setText("Tim kiem");
+        btnTimKiem.setText("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemActionPerformed(evt);
@@ -148,9 +148,17 @@ public class QuanLySach extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ma sach", "Ten sach", "The loai", "Tac gia", "So luong", "Don gia"
+                "Mã sách", "Tên sách", "Thể loại", "Tác giả", "Số lượng", "Đơn giá"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tableSach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableSachMouseClicked(evt);
@@ -163,13 +171,13 @@ public class QuanLySach extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableSach);
 
-        jLabel2.setText("Ma sach");
+        jLabel2.setText("Mã sách");
 
-        jLabel3.setText("Ten sach");
+        jLabel3.setText("Tên sách");
 
-        jLabel4.setText("The loai");
+        jLabel4.setText("Thể loại");
 
-        jLabel5.setText("Tac gia");
+        jLabel5.setText("Tác giả");
 
         txtTacGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,11 +185,11 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("So luong");
+        jLabel6.setText("Số lượng");
 
-        jLabel7.setText("Don gia");
+        jLabel7.setText("Đơn giá");
 
-        btnCapNhat.setText("Cap nhat");
+        btnCapNhat.setText("Cập nhật");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);
@@ -195,7 +203,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnThem.setText("Them");
+        btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);

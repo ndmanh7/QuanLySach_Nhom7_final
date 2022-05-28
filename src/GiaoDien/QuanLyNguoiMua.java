@@ -95,12 +95,12 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Quan Ly Nguoi Mua");
+        jLabel1.setText("Quản lý người mua");
         jLabel1.setToolTipText("");
         jLabel1.setRequestFocusEnabled(false);
 
         btnQuayLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/back.png"))); // NOI18N
-        btnQuayLai.setText("Quay Lai");
+        btnQuayLai.setText("Quay lại");
         btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuayLaiActionPerformed(evt);
@@ -113,7 +113,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
             }
         });
 
-        btnTimKiem.setText("Tim kiem");
+        btnTimKiem.setText("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemActionPerformed(evt);
@@ -152,7 +152,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ma nguoi mua", "Ten nguoi mua", "So dien thoai", "Dia chi", "Email"
+                "Mã người mua", "Tên người mua", "Số điện thoại", "Địa chỉ", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -178,7 +178,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableNguoiMua);
 
-        jLabel2.setText("Ma nguoi mua");
+        jLabel2.setText("Mã người mua");
 
         txtMaNguoiMua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,11 +186,11 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Ten nguoi mua");
+        jLabel3.setText("Tên người mua");
 
-        jLabel4.setText("So dien thoai");
+        jLabel4.setText("Số điện thoại");
 
-        jLabel5.setText("Dia chi");
+        jLabel5.setText("Địa chỉ");
 
         txtDiaChi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,21 +200,21 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
         jLabel6.setText("Email");
 
-        btnCapNhat.setText("Cap nhat");
+        btnCapNhat.setText("Cập nhật");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);
             }
         });
 
-        btnXoa.setText("Xoa");
+        btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaActionPerformed(evt);
             }
         });
 
-        btnThem.setText("Them");
+        btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);

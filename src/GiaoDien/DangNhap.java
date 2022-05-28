@@ -105,26 +105,35 @@ public class DangNhap extends javax.swing.JFrame {
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         DataIO.loadTaiKhoan();
         
-        String tk = txtTaiKhoan.getText();
-        String mk = txtMatKhau.getText();
+        
         int check = 0;
         
         for (TaiKhoan taiKhoan : DataIO.dsTaiKhoan) {
-            if(taiKhoan.getTaiKhoan().equals(tk) && taiKhoan.getMatKhau().equals(mk)){
-                new NhanVienMenu().setVisible(true);
-                this.dispose();
+            if(txtTaiKhoan.getText().equals(taiKhoan.getTaiKhoan()) && txtMatKhau.getText().equals(taiKhoan.getMatKhau())){
                 check++;
             }
         }
         
         if(check == 0){
-            JOptionPane.showMessageDialog(rootPane, "Tai khoan khong ton tai!");
-        }
-        
-        if(txtTaiKhoan.getText().equals("admin") && txtMatKhau.getText().equals("admin")){
+            JOptionPane.showMessageDialog(rootPane, "Tài khoản hoặc mật khẩu không chính xác!");
+        }else{
+            if(txtTaiKhoan.getText().equals("admin") && txtMatKhau.getText().equals("admin")){
             new Admin().setVisible(true);
             this.dispose();
+        }else{
+                for (int i = 1; i < DataIO.dsTaiKhoan.size(); i++) {
+                    if(txtTaiKhoan.getText().equals(DataIO.dsTaiKhoan.get(i).getTaiKhoan()) 
+                            && txtMatKhau.getText().equals(DataIO.dsTaiKhoan.get(i).getMatKhau())){
+                                new NhanVienMenu().setVisible(true);
+                                this.dispose();
+                                break;
+                    }
+
+                }
+            }
         }
+        
+        
         
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
