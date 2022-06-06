@@ -9,7 +9,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class DataIO {
@@ -310,4 +313,80 @@ public class DataIO {
         loadHoaDon();
         loadNguoiMua();
     }
+    
+    
+    
+    //======>PHẦN NÀY NAM THÊM <========
+        public static void writeNVFile(String filename, NhanVien nv){
+        FileWriter fw=null;
+        BufferedWriter bw=null;
+        try {
+            fw= new FileWriter(filename, true);
+            bw= new BufferedWriter(fw);
+            bw.write(nv.getMaNhanVien()+";"+nv.getTenNhanVien()+";"+nv.getTaiKhoan()+";"+nv.getNgayVaoLam()+";"+nv.getSoNgayNghi()+"\n");  
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Loi ghi file");
+            //System.out.println("loi ghi file");
+        } finally {
+            try {
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+                System.out.println("Loi close");
+            }
+        }
+    }
+    
+    public static void writeListNVFile(String filename, List<NhanVien> NVs){
+        FileWriter fw=null;
+        BufferedWriter bw=null;
+        try {
+            fw= new FileWriter(filename, false);
+            bw= new BufferedWriter(fw);
+            for(NhanVien nv: NVs){
+                bw.write(nv.getMaNhanVien()+";"+nv.getTenNhanVien()+";"+nv.getTaiKhoan()+";"+nv.getNgayVaoLam()+";"+nv.getSoNgayNghi());
+                bw.newLine();
+            }  
+        } catch (IOException ex) {
+            System.out.println("loi ghi file");
+        } finally {
+            try {
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+                System.out.println("Loi close");
+            }
+        }
+    }
+    
+    
+    public static List<NhanVien> getAllNV(String filename){
+        List<NhanVien> NVs= new ArrayList<>();
+        FileReader fd=null;
+        BufferedReader bd=null;
+        try {
+            fd= new FileReader(filename);
+            bd= new BufferedReader(fd);
+            String line="";
+            while( (line=bd.readLine())!=null ){
+                String str[]= line.split(";");
+                int songay = Integer.parseInt(str[4]);
+                NhanVien nv = new NhanVien(str[0],str[1], str[2], str[3], songay );
+                NVs.add(nv);
+            }
+        } catch (IOException ex) {
+            System.out.println("loi doc file");
+        } finally {
+            try {
+                bd.close();
+                fd.close();
+            } catch (IOException ex) {
+                System.out.println("Loi close");
+            }
+        }
+        return NVs;
+    }
+    
+    
+    //====> KẾT THÚC PHẦN NAM THÊM
 }
