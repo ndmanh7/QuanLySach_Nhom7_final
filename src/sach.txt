@@ -3,14 +3,4 @@ s011;Triết học Mác-Lênin;GD;NXB Giáo dục;168;10000;null
 s004;Lập trình Java;GD;NXB Giáo dục;99;19000;null
 s006;Toán cao cấp 2;GD;NXB Giáo dục;187;17000;null
 s007;Cơ sở dữ liệu;GD;NXB Giáo dục;156;10000;null
-<<<<<<< Updated upstream
-s005;Lập trinh .NET;GD;NXB Giáo dục;98;19000;null
-=======
-s008;Cấu trúc dữ liệu và giải thuật;GD;NXB Giáo dục;196;10000;null
-s009;Lập trình C++;GD;NXB Giáo dục;163;10000;null
-s010;Tiếng Anh CNTT;GD;NXB Giáo dục;150;20000;null
-s011;Nguyên lý hệ điều hành;GD;NXB Giáo dục;154;10000;null
-s012;Kiến trúc máy tính;GD;NXB Giáo dục;182;10000;null
-s013;Kỹ thuật số;GD;NXB Giáo dục;188;10000;null
-1;2;3;1;1;1;null
->>>>>>> Stashed changes
+s008;Cơ sở dữ liệu 1;GD;NXB Giáo dục;156;10000;null
