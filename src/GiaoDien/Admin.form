@@ -787,8 +787,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
+=======
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel7" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -847,6 +862,7 @@
                               </Group>
                           </Group>
                       </Group>
+<<<<<<< Updated upstream
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="btnThem" alignment="0" max="32767" attributes="0"/>
@@ -862,6 +878,21 @@
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+=======
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="665" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" pref="226" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
                   </Group>
               </Group>
             </DimensionLayout>
@@ -872,13 +903,17 @@
                       <Component id="jLabel3" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="118" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
 
                       <EmptySpace max="32767" attributes="0"/>
 
                       <EmptySpace pref="16" max="32767" attributes="0"/>
 
+=======
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel9" min="-2" pref="32" max="-2" attributes="0"/>
@@ -889,7 +924,10 @@
                               <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="btnThem" min="-2" pref="32" max="-2" attributes="0"/>
@@ -897,11 +935,16 @@
                                       <Component id="btnXoa" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
+<<<<<<< Updated upstream
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+=======
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtMaNguoiMua" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       </Group>
+<<<<<<< Updated upstream
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -927,11 +970,45 @@
                                                   <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
+=======
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTenNguoiMua" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="btnCapNhat" min="-2" pref="34" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="txtSoDienThoai" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="txtDiaChi" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
 
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -986,6 +1063,8 @@
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
 
+=======
+>>>>>>> Stashed changes
                           </Group>
                       </Group>
                   </Group>
@@ -1005,7 +1084,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Quan Ly Nguoi Mua"/>
+                <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; ng&#x1b0;&#x1edd;i mua"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -1019,11 +1098,11 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="4">
-                        <Column editable="true" title="Ma nguoi mua" type="java.lang.Object"/>
-                        <Column editable="true" title="Ten nguoi mua" type="java.lang.Object"/>
-                        <Column editable="true" title="So dien thoai" type="java.lang.Object"/>
-                        <Column editable="true" title="Dia chi" type="java.lang.Object"/>
-                        <Column editable="true" title="Email" type="java.lang.Object"/>
+                        <Column editable="false" title="M&#xe3; ng&#x1b0;&#x1edd;i mua" type="java.lang.Object"/>
+                        <Column editable="false" title="T&#xea;n ng&#x1b0;&#x1edd;i mua" type="java.lang.Object"/>
+                        <Column editable="false" title="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i" type="java.lang.Object"/>
+                        <Column editable="false" title="&#x110;&#x1ecb;a ch&#x1ec9;" type="java.lang.Object"/>
+                        <Column editable="false" title="Email" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1068,34 +1147,50 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ma nguoi mua"/>
+=======
+                <Property name="text" type="java.lang.String" value="M&#xe3; ng&#x1b0;&#x1edd;i mua"/>
+>>>>>>> Stashed changes
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ten nguoi mua"/>
+=======
+                <Property name="text" type="java.lang.String" value="T&#xea;n ng&#x1b0;&#x1edd;i mua"/>
+>>>>>>> Stashed changes
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="So dien thoai"/>
+=======
+                <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n thoai"/>
+>>>>>>> Stashed changes
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dia chi"/>
+=======
+                <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;"/>
+>>>>>>> Stashed changes
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -1127,6 +1222,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnThem">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
@@ -1134,6 +1230,9 @@
                   <Image iconType="3" name="/GiaoDien/add.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Them"/>
+=======
+                <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
+>>>>>>> Stashed changes
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>
@@ -1141,6 +1240,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCapNhat">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
@@ -1148,6 +1248,9 @@
                   <Image iconType="3" name="/GiaoDien/update.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cap nhat"/>
+=======
+                <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
+>>>>>>> Stashed changes
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCapNhatActionPerformed"/>
@@ -1155,6 +1258,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnXoa">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
@@ -1162,6 +1266,9 @@
                   <Image iconType="3" name="/GiaoDien/delete.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Xoa"/>
+=======
+                <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
+>>>>>>> Stashed changes
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
@@ -1169,10 +1276,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="T&#xec;m kiem theo ten"/>
+=======
+                <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m theo t&#xea;n"/>
+>>>>>>> Stashed changes
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTimKiem">
@@ -1182,6 +1293,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnTimKiem">
               <Properties>
+<<<<<<< Updated upstream
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
@@ -1189,6 +1301,9 @@
                   <Image iconType="3" name="/GiaoDien/timkiem.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tim kiem"/>
+=======
+                <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
+>>>>>>> Stashed changes
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemActionPerformed"/>
