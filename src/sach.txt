@@ -1,4 +1,4 @@
-s001;Toán cao cấp;GD;NXB Giáo dục;211;15000;null
+s001;Toán cao cấp;GD;NXB Giáo dục;171;15000;null
 s002;Triết học Mác-Lênin;GD;NXB Giáo dục;168;10000;null
 s003;Pháp luật đại cương;GD;NXB Giáo dục;122;10000;null
 s004;Lập trình Java;GD;NXB Giáo dục;99;19000;null
