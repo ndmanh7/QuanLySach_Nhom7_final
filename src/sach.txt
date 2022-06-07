@@ -1,6 +1,7 @@
-s001;Toán cao cấp;GD;NXB Giáo dục;211;15000;null
+s001;Toán cao cấp;GD;NXB Giáo dục;170;15000;null
 s011;Triết học Mác-Lênin;GD;NXB Giáo dục;168;10000;null
-s004;Lập trình Java;GD;NXB Giáo dục;99;19000;null
+s004;Lập trình Java;GD;NXB Giáo dục;89;19000;null
 s006;Toán cao cấp 2;GD;NXB Giáo dục;187;17000;null
 s007;Cơ sở dữ liệu;GD;NXB Giáo dục;156;10000;null
-s008;Cơ sở dữ liệu 1;GD;NXB Giáo dục;156;10000;null
+s005;Lập trinh .NET;GD;NXB Giáo dục;98;19000;null
+s008;Cơ sở dữ liệu;GD;NXB Giáo dục;156;10000;null

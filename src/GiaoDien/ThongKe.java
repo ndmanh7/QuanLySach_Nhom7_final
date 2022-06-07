@@ -22,14 +22,26 @@ public class ThongKe extends javax.swing.JFrame {
         initComponents();
         DataIO.loadData();
         int soSachDaBan = 0, soSachCon = 0, soNguoiMua = 0;
+        
+        for (int j = DataIO.dsHoaDon.size() - 1 ; j >= DataIO.dsHoaDon.size() / 2; j--) {
+            DataIO.dsHoaDon.remove(j);
+        }
+        DataIO.loadHoaDon();
         for (HoaDon hoaDon : DataIO.dsHoaDon) {
             soSachDaBan += hoaDon.getSoLuongMua();
         }
         
+        for (int j = DataIO.dsSach.size() - 1 ; j >= DataIO.dsSach.size() / 2; j--) {
+            DataIO.dsSach.remove(j);
+        }
+        DataIO.loadSach();
         for (Sach sach : DataIO.dsSach) {
             soSachCon += sach.getSoLuongCon();
         }
-        
+        for (int j = DataIO.dsNguoiMua.size() - 1 ; j >= DataIO.dsNguoiMua.size() / 2; j--) {
+            DataIO.dsNguoiMua.remove(j);
+        }
+        DataIO.loadNguoiMua();
         soNguoiMua = DataIO.dsNguoiMua.size();
         
         txtSoSachBan.setText(""+soSachDaBan);

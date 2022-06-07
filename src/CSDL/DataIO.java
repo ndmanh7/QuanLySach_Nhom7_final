@@ -313,10 +313,7 @@ public class DataIO {
         loadHoaDon();
         loadNguoiMua();
     }
-    
-    
-    
-    //======>PHẦN NÀY NAM THÊM <========
+//======>PHẦN NÀY NAM THÊM <========
         public static void writeNVFile(String filename, NhanVien nv){
         FileWriter fw=null;
         BufferedWriter bw=null;
@@ -388,5 +385,6 @@ public class DataIO {
     }
     
     
-    //====> KẾT THÚC PHẦN NAM THÊM
+    //====> KẾT THÚC PHẦN NAM THÊM    
+    
 }
