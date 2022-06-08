@@ -11,10 +11,16 @@ import CSDL.HoaDon;
 import CSDL.NguoiMua;
 import CSDL.NhanVien;
 import CSDL.Sach;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -45,9 +51,18 @@ public class Admin extends javax.swing.JFrame {
         loadTableNguoiMua();
         loadCombo();
         int soSachDaBan = 0, soSachCon = 0, soNguoiMua = 0;
+        for (int j = DataIO.dsHoaDon.size() - 1 ; j >= DataIO.dsHoaDon.size() / 2; j--) {
+            DataIO.dsHoaDon.remove(j);
+        }
+        DataIO.loadHoaDon();
         for (HoaDon hoaDon : DataIO.dsHoaDon) {
             soSachDaBan += hoaDon.getSoLuongMua();
         }
+        
+        for (int j = DataIO.dsSach.size() - 1 ; j >= DataIO.dsSach.size() / 2; j--) {
+            DataIO.dsSach.remove(j);
+        }
+        DataIO.loadSach();
         for (Sach sach : DataIO.dsSach) {
             soSachCon += sach.getSoLuongCon();
         }
@@ -254,10 +269,9 @@ public class Admin extends javax.swing.JFrame {
         txtTimKiem2 = new javax.swing.JTextField();
         btnTimKiem2 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
-        btnThem2 = new javax.swing.JButton();
-        btnCapNhat2 = new javax.swing.JButton();
-        btnXoa2 = new javax.swing.JButton();
         btnReset1 = new javax.swing.JButton();
+        btnSapXepSoLuongMua = new javax.swing.JButton();
+        btnSapXepNgayMua = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         txtMaHoaDon = new javax.swing.JTextField();
@@ -318,7 +332,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(429, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGap(221, 221, 221)
@@ -566,7 +580,7 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(106, 106, 106)
                 .addComponent(btnThemNV, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(btnCapNhatNV, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95)
                 .addComponent(btnXoaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -578,14 +592,12 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCapNhatNV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(btnXoaNV, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                                .addGap(7, 7, 7))
-                            .addComponent(btnThemNV, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(btnXoaNV, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                        .addGap(7, 7, 7))
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnThemNV, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -1139,7 +1151,7 @@ public class Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 44, Short.MAX_VALUE)
+                        .addGap(0, 47, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(817, 817, 817))
                     .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1225,7 +1237,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1248,35 +1260,25 @@ public class Admin extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(204, 204, 204));
         jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnThem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/add.png"))); // NOI18N
-        btnThem2.setText("Thêm");
-        btnThem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem2ActionPerformed(evt);
-            }
-        });
-
-        btnCapNhat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/update.png"))); // NOI18N
-        btnCapNhat2.setText("Cập nhật");
-        btnCapNhat2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCapNhat2ActionPerformed(evt);
-            }
-        });
-
-        btnXoa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/delete.png"))); // NOI18N
-        btnXoa2.setText("Xóa");
-        btnXoa2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa2ActionPerformed(evt);
-            }
-        });
-
         btnReset1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnReset1.setText("Reset");
         btnReset1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReset1ActionPerformed(evt);
+            }
+        });
+
+        btnSapXepSoLuongMua.setText("Sắp xếp theo số lượng mua");
+        btnSapXepSoLuongMua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSapXepSoLuongMuaActionPerformed(evt);
+            }
+        });
+
+        btnSapXepNgayMua.setText("Sắp xếp theo ngày mua");
+        btnSapXepNgayMua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSapXepNgayMuaActionPerformed(evt);
             }
         });
 
@@ -1287,24 +1289,25 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(btnReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111)
-                .addComponent(btnThem2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCapNhat2)
-                .addGap(162, 162, 162)
-                .addComponent(btnXoa2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addComponent(btnSapXepSoLuongMua)
+                .addGap(176, 176, 176)
+                .addComponent(btnSapXepNgayMua)
+                .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThem2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCapNhat2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoa2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(btnReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSapXepNgayMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSapXepSoLuongMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
 
         jPanel18.setBackground(new java.awt.Color(204, 204, 204));
@@ -1368,7 +1371,7 @@ public class Admin extends javax.swing.JFrame {
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTongSoHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1747,107 +1750,6 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNgayMuaActionPerformed
 
-    private void btnThem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem2ActionPerformed
-        if (txtMaHoaDon.getText() == "" || txtNgayMua.getText() == "" || txtSoLuongMua.getText() == "") {
-            JOptionPane.showMessageDialog(rootPane, "Bạn cần nhập đủ trường");
-        }
-
-        int check1 = 0;
-        for (HoaDon hoaDon : DataIO.dsHoaDon) {
-            if (txtMaHoaDon.getText().equals(hoaDon.getMaHoaDon())) {
-                check1++;
-            }
-        }
-
-        if (check1 != 0) {
-            JOptionPane.showMessageDialog(rootPane, "Đã tồn tại hóa đơn này!");
-        } else if (!txtSoLuongMua.getText().matches("-?\\d+(\\.\\d+)?")) {
-            JOptionPane.showMessageDialog(rootPane, "Số lượng phải là số");
-        } else {
-            HoaDon hoaDon = new HoaDon();
-            hoaDon.setMaHoaDon(txtMaHoaDon.getText());
-            hoaDon.setMaNguoiMua(comboMaNguoiMua.getSelectedItem().toString());
-            hoaDon.setMaSach(comboMaSach.getSelectedItem().toString());
-            hoaDon.setNgayMua(txtNgayMua.getText());
-            hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
-
-            for (int j = DataIO.dsSach.size() - 1; j >= DataIO.dsSach.size() / 2; j--) {
-                DataIO.dsSach.remove(j);
-            }
-            DataIO.loadSach();
-            int check = 0, i = 0;
-            for (Sach sach : DataIO.dsSach) {
-                if (sach.getMaSach().equals(comboMaSach.getSelectedItem())) {
-                    i = DataIO.dsSach.indexOf(sach);
-                    check++;
-                }
-            }
-
-            if (check != 0) {
-                Sach sach = DataIO.dsSach.get(i);
-                sach.setSoLuongCon(sach.getSoLuongCon() - hoaDon.getSoLuongMua());
-                DataIO.dsSach.set(i, sach);
-                hoaDon.setThanhTien(hoaDon.getSoLuongMua() * sach.getDonGia());
-                DataIO.dsHoaDon.add(hoaDon);
-
-                HoaDon hoaDon1 = DataIO.dsHoaDon.get(DataIO.dsHoaDon.size() - 1);
-                modelHD.addRow(new Object[]{
-                    hoaDon1.getMaHoaDon(), hoaDon1.getMaNguoiMua(), hoaDon1.getMaSach(),
-                    hoaDon1.getNgayMua(), hoaDon1.getSoLuongMua(), hoaDon1.getThanhTien()
-                });
-                DataIO.writeHoaDon();
-                DataIO.writeSach();
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Khong ton tai sach nay!");
-            }
-        }
-    }//GEN-LAST:event_btnThem2ActionPerformed
-
-    private void btnCapNhat2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhat2ActionPerformed
-        int i = tableHoaDon.getSelectedRow();
-
-        HoaDon hoaDon = new HoaDon();
-        hoaDon.setMaHoaDon(txtMaHoaDon.getText());
-        hoaDon.setMaNguoiMua(comboMaNguoiMua.getSelectedItem().toString());
-        hoaDon.setMaSach(comboMaSach.getSelectedItem().toString());
-        hoaDon.setNgayMua(txtNgayMua.getText());
-        hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
-        DataIO.loadSach();
-        int check1 = 0, i1 = 0;
-        for (Sach sach : DataIO.dsSach) {
-            if (sach.getMaSach().equals(comboMaSach.getSelectedItem().toString())) {
-                i1 = DataIO.dsSach.indexOf(sach);
-                check1++;
-            }
-        }
-
-        if (check1 != 0) {
-            Sach sach = DataIO.dsSach.get(i1);
-            hoaDon.setThanhTien(hoaDon.getSoLuongMua() * sach.getDonGia());
-
-        }
-
-        DataIO.dsHoaDon.set(i, hoaDon);
-
-        modelHD.setValueAt(hoaDon.getMaHoaDon(), i, 0);
-        modelHD.setValueAt(hoaDon.getMaNguoiMua(), i, 1);
-        modelHD.setValueAt(hoaDon.getMaSach(), i, 2);
-        modelHD.setValueAt(hoaDon.getNgayMua(), i, 3);
-        modelHD.setValueAt(hoaDon.getSoLuongMua(), i, 4);
-        modelHD.setValueAt(hoaDon.getThanhTien(), i, 5);
-
-        DataIO.writeHoaDon();
-    }//GEN-LAST:event_btnCapNhat2ActionPerformed
-
-    private void btnXoa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa2ActionPerformed
-        int i = tableHoaDon.getSelectedRow();
-
-        DataIO.dsHoaDon.remove(i);
-
-        modelHD.removeRow(i);
-        DataIO.writeHoaDon();
-    }//GEN-LAST:event_btnXoa2ActionPerformed
-
     private void txtTimKiem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimKiem2ActionPerformed
@@ -2027,6 +1929,57 @@ public class Admin extends javax.swing.JFrame {
         txtNgayVaoLam.setText("");
     }//GEN-LAST:event_btnReset2ActionPerformed
 
+    private void btnSapXepSoLuongMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepSoLuongMuaActionPerformed
+        Comparator<HoaDon> c = new Comparator<HoaDon>() {
+            @Override
+            public int compare(HoaDon o1, HoaDon o2) {
+                Integer soLuong1 = (Integer) o1.getSoLuongMua();
+                Integer soLuong2 = (Integer) o2.getSoLuongMua();
+                return soLuong1.compareTo(soLuong2);
+            }
+        };
+
+        dsHoaDon.sort(c);
+
+        modelHD.setRowCount(0);
+        for (HoaDon hoaDon : dsHoaDon) {
+            modelHD.addRow(new Object[]{
+                hoaDon.getMaHoaDon(),hoaDon.getMaNguoiMua(),hoaDon.getMaSach(),
+                hoaDon.getNgayMua(),hoaDon.getSoLuongMua(),hoaDon.getThanhTien()
+            });
+        }
+
+    }//GEN-LAST:event_btnSapXepSoLuongMuaActionPerformed
+
+    private void btnSapXepNgayMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepNgayMuaActionPerformed
+        Comparator<HoaDon> c = new Comparator<HoaDon>() {
+            @Override
+            public int compare(HoaDon o1, HoaDon o2) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date1 = null, date2 = null;
+                try {
+                    date1 = dateFormat.parse(o1.getNgayMua());
+                    date2 = dateFormat.parse(o2.getNgayMua());
+                    
+                } catch (ParseException ex) {
+                    Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                return date1.compareTo(date2);
+ 
+            }
+        };
+
+        dsHoaDon.sort(c);
+
+        modelHD.setRowCount(0);
+        for (HoaDon hoaDon : dsHoaDon) {
+            modelHD.addRow(new Object[]{
+                hoaDon.getMaHoaDon(),hoaDon.getMaNguoiMua(),hoaDon.getMaSach(),
+                hoaDon.getNgayMua(),hoaDon.getSoLuongMua(),hoaDon.getThanhTien()
+            });
+        }
+    }//GEN-LAST:event_btnSapXepNgayMuaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2066,15 +2019,15 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhat;
     private javax.swing.JButton btnCapNhat1;
-    private javax.swing.JButton btnCapNhat2;
     private javax.swing.JButton btnCapNhatNV;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset1;
     private javax.swing.JButton btnReset2;
+    private javax.swing.JButton btnSapXepNgayMua;
+    private javax.swing.JButton btnSapXepSoLuongMua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnThem1;
-    private javax.swing.JButton btnThem2;
     private javax.swing.JButton btnThemNV;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnTimKiem1;
@@ -2082,7 +2035,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnTimNV;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btnXoa1;
-    private javax.swing.JButton btnXoa2;
     private javax.swing.JButton btnXoaNV;
     private javax.swing.JComboBox<String> comboMaNguoiMua;
     private javax.swing.JComboBox<String> comboMaSach;

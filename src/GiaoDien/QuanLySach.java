@@ -11,6 +11,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -73,10 +75,9 @@ public class QuanLySach extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSach = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        btnCapNhat = new javax.swing.JButton();
-        btnXoa = new javax.swing.JButton();
-        btnThem = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
+        btnSapXepTen = new javax.swing.JButton();
+        btnSapXepDonGia = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMaSach = new javax.swing.JTextField();
@@ -177,35 +178,25 @@ public class QuanLySach extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnCapNhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/update.png"))); // NOI18N
-        btnCapNhat.setText("Cập nhật");
-        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCapNhatActionPerformed(evt);
-            }
-        });
-
-        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/delete.png"))); // NOI18N
-        btnXoa.setText("Xoá");
-        btnXoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaActionPerformed(evt);
-            }
-        });
-
-        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/add.png"))); // NOI18N
-        btnThem.setText("Thêm");
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
-            }
-        });
-
         btnReset.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
+            }
+        });
+
+        btnSapXepTen.setText("Sắp xếp theo tên");
+        btnSapXepTen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSapXepTenActionPerformed(evt);
+            }
+        });
+
+        btnSapXepDonGia.setText("Sắp xếp theo đơn giá");
+        btnSapXepDonGia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSapXepDonGiaActionPerformed(evt);
             }
         });
 
@@ -216,24 +207,23 @@ public class QuanLySach extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95)
-                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
-                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSapXepTen)
+                .addGap(189, 189, 189)
+                .addComponent(btnSapXepDonGia)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSapXepTen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSapXepDonGia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thông tin sách"));
@@ -352,64 +342,6 @@ public class QuanLySach extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTacGiaActionPerformed
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        if (txtMaSach.getText().isBlank()) {
-            JOptionPane.showMessageDialog(rootPane, "Mã sách không được để trống");
-        } else if (txtTenSach.getText().isBlank()) {
-            JOptionPane.showMessageDialog(rootPane, "Tên sách không được để trống");
-        } else if (txtTheLoai.getText().isBlank()) {
-            JOptionPane.showMessageDialog(rootPane, "Thể loại không được để trống");
-        } else if (txtTacGia.getText().isBlank()) {
-            JOptionPane.showMessageDialog(rootPane, "Tác giả không được để trống");
-        } else if (txtSoLuong.getText().isBlank()) {
-            JOptionPane.showMessageDialog(rootPane, "Số lượng không được để trống");
-        } else if (txtDonGia.getText().isBlank()) {
-            JOptionPane.showMessageDialog(rootPane, "Đơn giá không được để trống");
-        } else {
-            String tenReg = "^[a-zA-Z\\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$";
-            String reg = "^\\d+$";
-            if (!txtTenSach.getText().matches(tenReg)) {
-                JOptionPane.showMessageDialog(rootPane, "Tên không đúng định dạng");
-            } else if (!txtSoLuong.getText().matches(reg)) {
-                JOptionPane.showMessageDialog(rootPane, "Số lượng phải là 1 số");
-            } else if (!txtDonGia.getText().matches(reg)) {
-                JOptionPane.showMessageDialog(rootPane, "Đơn giá phải là 1 số");
-            } else {
-                int check = 0;
-                for (Sach sach : dsSach) {
-                    if (txtMaSach.getText().equals(sach.getMaSach())) {
-                        check++;
-                    }
-                }
-
-                if (check != 0) {
-                    JOptionPane.showMessageDialog(rootPane, "Đã tồn tại sách này");
-                } else {
-
-                    Sach sach = new Sach();
-                    sach.setMaSach(txtMaSach.getText());
-                    sach.setTenSach(txtTenSach.getText());
-                    sach.setTheLoai(txtTheLoai.getText());
-                    sach.setTacGia(txtTacGia.getText());
-                    sach.setSoLuongCon(Integer.parseInt(txtSoLuong.getText()));
-                    sach.setDonGia(Integer.parseInt(txtDonGia.getText()));
-
-                    DataIO.dsSach.add(sach);
-
-                    Sach sach1 = DataIO.dsSach.get(DataIO.dsSach.size() - 1);
-                    model.addRow(new Object[]{
-                        sach1.getMaSach(), sach1.getTenSach(), sach1.getTheLoai(),
-                        sach1.getTacGia(), sach1.getSoLuongCon(), sach1.getDonGia()
-                    });
-
-                    DataIO.writeSach();
-                }
-            }
-        }
-
-
-    }//GEN-LAST:event_btnThemActionPerformed
-
     private void tableSachKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableSachKeyReleased
         int i = tableSach.getSelectedRow();
 
@@ -431,38 +363,6 @@ public class QuanLySach extends javax.swing.JFrame {
         txtSoLuong.setText(model.getValueAt(i, 4).toString());
         txtDonGia.setText(model.getValueAt(i, 5).toString());
     }//GEN-LAST:event_tableSachMouseClicked
-
-    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
-        int i = tableSach.getSelectedRow();
-
-        Sach sach = new Sach();
-        sach.setMaSach(txtMaSach.getText());
-        sach.setTenSach(txtTenSach.getText());
-        sach.setTheLoai(txtTheLoai.getText());
-        sach.setTacGia(txtTacGia.getText());
-        sach.setSoLuongCon(Integer.parseInt(txtSoLuong.getText()));
-        sach.setDonGia(Integer.parseInt(txtDonGia.getText()));
-
-        DataIO.dsSach.set(i, sach);
-
-        model.setValueAt(sach.getMaSach(), i, 0);
-        model.setValueAt(sach.getTenSach(), i, 1);
-        model.setValueAt(sach.getTheLoai(), i, 2);
-        model.setValueAt(sach.getTacGia(), i, 3);
-        model.setValueAt(sach.getSoLuongCon(), i, 4);
-        model.setValueAt(sach.getDonGia(), i, 5);
-
-        DataIO.writeSach();
-    }//GEN-LAST:event_btnCapNhatActionPerformed
-
-    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        int i = tableSach.getSelectedRow();
-
-        DataIO.dsSach.remove(i);
-
-        model.removeRow(i);
-        DataIO.writeSach();
-    }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
         NhanVienMenu menu = new NhanVienMenu();
@@ -487,6 +387,47 @@ public class QuanLySach extends javax.swing.JFrame {
         txtSoLuong.setText("");
         txtDonGia.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnSapXepTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepTenActionPerformed
+        Comparator<Sach> c = new Comparator<Sach>() {
+            @Override
+            public int compare(Sach o1, Sach o2) {
+                return o1.getTenSach().compareTo(o2.getTenSach());
+               }
+        };
+        
+        dsSach.sort(c);
+        
+        model.setRowCount(0);
+        for (Sach sach : dsSach) {
+            model.addRow(new Object[]{
+                sach.getMaSach(),sach.getTenSach(),sach.getTheLoai(),sach.getTacGia(),
+                sach.getSoLuongCon(),sach.getDonGia()
+            });
+        }
+        
+    }//GEN-LAST:event_btnSapXepTenActionPerformed
+
+    private void btnSapXepDonGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepDonGiaActionPerformed
+        Comparator<Sach> c = new Comparator<Sach>() {
+            @Override
+            public int compare(Sach o1, Sach o2) {
+                Integer donGia1 = (Integer) o1.getDonGia();
+                Integer donGia2 = (Integer) o2.getDonGia();
+                return donGia1.compareTo(donGia2);
+               }
+        };
+        
+        dsSach.sort(c);
+        
+        model.setRowCount(0);
+        for (Sach sach : dsSach) {
+            model.addRow(new Object[]{
+                sach.getMaSach(),sach.getTenSach(),sach.getTheLoai(),sach.getTacGia(),
+                sach.getSoLuongCon(),sach.getDonGia()
+            });
+        }
+    }//GEN-LAST:event_btnSapXepDonGiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -524,12 +465,11 @@ public class QuanLySach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCapNhat;
     private javax.swing.JButton btnQuayLai;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnSapXepDonGia;
+    private javax.swing.JButton btnSapXepTen;
     private javax.swing.JButton btnTimKiem;
-    private javax.swing.JButton btnXoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
