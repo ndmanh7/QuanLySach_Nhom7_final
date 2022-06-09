@@ -51,15 +51,15 @@ public class Admin extends javax.swing.JFrame {
         loadTableNguoiMua();
         loadCombo();
         int soSachDaBan = 0, soSachCon = 0, soNguoiMua = 0;
-        for (int j = DataIO.dsHoaDon.size() - 1 ; j >= DataIO.dsHoaDon.size() / 2; j--) {
+        for (int j = DataIO.dsHoaDon.size() - 1; j >= DataIO.dsHoaDon.size() / 2; j--) {
             DataIO.dsHoaDon.remove(j);
         }
         DataIO.loadHoaDon();
         for (HoaDon hoaDon : DataIO.dsHoaDon) {
             soSachDaBan += hoaDon.getSoLuongMua();
         }
-        
-        for (int j = DataIO.dsSach.size() - 1 ; j >= DataIO.dsSach.size() / 2; j--) {
+
+        for (int j = DataIO.dsSach.size() - 1; j >= DataIO.dsSach.size() / 2; j--) {
             DataIO.dsSach.remove(j);
         }
         DataIO.loadSach();
@@ -78,13 +78,13 @@ public class Admin extends javax.swing.JFrame {
                 a.getMaNhanVien(), a.getTenNhanVien(), a.getTaiKhoan(), a.getNgayVaoLam(), a.getSoNgayNghi()
             });
         }
-        
-        txtTongSoHoaDon.setText(""+dsHoaDon.size());
+
+        txtTongSoHoaDon.setText("" + dsHoaDon.size());
         int tongTien = 0;
         for (HoaDon hoaDon : dsHoaDon) {
             tongTien += hoaDon.getThanhTien();
         }
-        txtDoanhThu.setText(""+tongTien);
+        txtDoanhThu.setText("" + tongTien);
 
         loadTableSach();
     }
@@ -1515,7 +1515,7 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnThem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem1ActionPerformed
 
-         if (txtMaSach.getText().isBlank()) {
+        if (txtMaSach.getText().isBlank()) {
             JOptionPane.showMessageDialog(rootPane, "Mã sách không được để trống");
         } else if (txtTenSach.getText().isBlank()) {
             JOptionPane.showMessageDialog(rootPane, "Tên sách không được để trống");
@@ -1648,21 +1648,30 @@ public class Admin extends javax.swing.JFrame {
             String ten = txtTenNV.getText().trim();
             String acc = txtTaiKhoan.getText().trim();
             String ngayVaoLam = txtNgayVaoLam.getText().trim();
-            int soNgayNghi = Integer.parseInt(txtSoNgayNghi.getText().trim());
+            int soNgayNghi = 0;
+            String numberReg = "^\\d+$";
+            if (!txtSoNgayNghi.getText().matches(numberReg)) {
+                JOptionPane.showMessageDialog(rootPane, "Số ngày nghỉ phải là 1 số");
+            } else {
+                if (Integer.parseInt(txtSoNgayNghi.getText()) > 10 || Integer.parseInt(txtSoNgayNghi.getText()) < 0) {
+                    JOptionPane.showMessageDialog(rootPane, "Số ngày nghỉ phải nằm trong khoảng 0 - 10");
+                } else {
+                    soNgayNghi = Integer.parseInt(txtSoNgayNghi.getText().trim());
+                    NhanVien nv = new NhanVien(id, ten, acc, ngayVaoLam, soNgayNghi);
+                    //NVs.add(nv);
+                    DataIO.writeNVFile("src\\nhanvien.txt", nv);
+                    model2.addRow(new Object[]{
+                        id, ten, acc, ngayVaoLam, soNgayNghi
+                    });
+                    NVs.add(nv);
 
-            NhanVien nv = new NhanVien(id, ten, acc, ngayVaoLam, soNgayNghi);
-            //NVs.add(nv);
-            DataIO.writeNVFile("src\\nhanvien.txt", nv);
-            model2.addRow(new Object[]{
-                id, ten, acc, ngayVaoLam, soNgayNghi
-            });
-            NVs.add(nv);
-
-            txtMaNV.setText("");
-            txtTenNV.setText("");
-            txtTaiKhoan.setText("");
-            txtNgayVaoLam.setText("");
-            txtSoNgayNghi.setText("");
+                    txtMaNV.setText("");
+                    txtTenNV.setText("");
+                    txtTaiKhoan.setText("");
+                    txtNgayVaoLam.setText("");
+                    txtSoNgayNghi.setText("");
+                }
+            }
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Hãy nhập đủ thông tin");
@@ -1863,7 +1872,7 @@ public class Admin extends javax.swing.JFrame {
                     nguoiMua.setEmail(txtEmail.getText());
 
                     DataIO.dsNguoiMua.add(nguoiMua);
-                    
+
                     NguoiMua nguoiMua1 = DataIO.dsNguoiMua.get(DataIO.dsNguoiMua.size() - 1);
                     model.addRow(new Object[]{
                         nguoiMua1.getMaNguoiMua(), nguoiMua1.getTenNguoiMua(), nguoiMua1.getSoDienThoai(),
@@ -1944,8 +1953,8 @@ public class Admin extends javax.swing.JFrame {
         modelHD.setRowCount(0);
         for (HoaDon hoaDon : dsHoaDon) {
             modelHD.addRow(new Object[]{
-                hoaDon.getMaHoaDon(),hoaDon.getMaNguoiMua(),hoaDon.getMaSach(),
-                hoaDon.getNgayMua(),hoaDon.getSoLuongMua(),hoaDon.getThanhTien()
+                hoaDon.getMaHoaDon(), hoaDon.getMaNguoiMua(), hoaDon.getMaSach(),
+                hoaDon.getNgayMua(), hoaDon.getSoLuongMua(), hoaDon.getThanhTien()
             });
         }
 
@@ -1960,12 +1969,12 @@ public class Admin extends javax.swing.JFrame {
                 try {
                     date1 = dateFormat.parse(o1.getNgayMua());
                     date2 = dateFormat.parse(o2.getNgayMua());
-                    
+
                 } catch (ParseException ex) {
                     Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 return date1.compareTo(date2);
- 
+
             }
         };
 
@@ -1974,8 +1983,8 @@ public class Admin extends javax.swing.JFrame {
         modelHD.setRowCount(0);
         for (HoaDon hoaDon : dsHoaDon) {
             modelHD.addRow(new Object[]{
-                hoaDon.getMaHoaDon(),hoaDon.getMaNguoiMua(),hoaDon.getMaSach(),
-                hoaDon.getNgayMua(),hoaDon.getSoLuongMua(),hoaDon.getThanhTien()
+                hoaDon.getMaHoaDon(), hoaDon.getMaNguoiMua(), hoaDon.getMaSach(),
+                hoaDon.getNgayMua(), hoaDon.getSoLuongMua(), hoaDon.getThanhTien()
             });
         }
     }//GEN-LAST:event_btnSapXepNgayMuaActionPerformed
