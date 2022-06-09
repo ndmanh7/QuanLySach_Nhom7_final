@@ -136,9 +136,14 @@ public class DangNhap extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
-        DataIO.loadTaiKhoan();
         
-        
+        if(txtTaiKhoan.getText().isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Tài khoản không được để trống");
+        }else if(txtMatKhau.getText().isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Mật khẩu không được để trống");
+        }else{
+             DataIO.loadTaiKhoan();
+ 
         int check = 0;
         
         for (TaiKhoan taiKhoan : DataIO.dsTaiKhoan) {
@@ -165,6 +170,9 @@ public class DangNhap extends javax.swing.JFrame {
                 }
             }
         }
+        }
+        
+       
         
         
         
